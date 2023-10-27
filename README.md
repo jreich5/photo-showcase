@@ -1,27 +1,48 @@
-# React + TypeScript + Vite
+# Photo Showcase
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a React application to display and search for photos by a photo album id.
 
-Currently, two official plugins are available:
+You can view a live version of the application [here](https://jreich5.github.io/photo-showcase/).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[This GitHub project board](https://github.com/users/jreich5/projects/3) was used to organize the development of this application. More details on project, the development process, and how to run the project locally are included below.
 
-## Expanding the ESLint configuration
+## Table of Contents
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [Description](#description)
+- [Setup](#setup)
+- [Development Process](#development-process)
+- [Lessons Learned](#lessons-learned)
 
-- Configure the top-level `parserOptions` property like this:
+## Description (IN PROGRESS)
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Setup (IN PROGRESS)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Development Process (IN PROGRESS)
+
+### Inital Setup and Planning
+
+I started started this project by first building out a <10min prototype in a single HTML file with JavaScript. This early prototype in the root of the project is the file called `ten-minute-prototype.html`. I did this to get a quick sense of the basic functionality of the project.
+
+After completing the prototype, I decided to build out a front-end app using React+TypeScript with Vite and Bun. My goal with this build was to strike a balance between over-engineering and adhering to as many best practices as possible.
+
+I prioritized the following considerations:
+
+1. Comprehensive test coverage
+1. Code clarity
+1. Performance
+
+After first setting up the project and removing the boilerplate code, I pushed the starting code up to a new GitHub repository and populated a GitHub Project board with tasks for completing the showcase.
+
+I then created mockups with Figma for the desktop and mobile views.
+
+Desktop mockup:
+
+![Desktop Mockup](desktop-view.png)
+
+Mobile mockup:
+
+![Mobile Mockup](mobile-view.png)
+
+### TDD Development
+
+## Lessons Learned (IN PROGRESS)
