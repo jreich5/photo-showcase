@@ -8,7 +8,7 @@ afterAll(() => {
 
 describe("AlbumForm component", () => {
   it("should render", () => {
-    render(<AlbumForm />);
+    render(<AlbumForm changeAlbumId={undefined} />);
     const inputElement = screen.getByPlaceholderText("Enter album id");
     expect(inputElement).toBeInTheDocument;
   });

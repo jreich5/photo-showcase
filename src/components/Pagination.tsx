@@ -1,11 +1,9 @@
 import React from "react";
 
-function Pagination() {
-  return (
-    <footer>
-      <h2>A footer</h2>
-    </footer>
-  );
+export const returnNumberOfPages = () => {};
+
+function Pagination({ pageNum, photos, changePageNum }) {
+  return <footer>photos</footer>;
 }
 
 export default Pagination;

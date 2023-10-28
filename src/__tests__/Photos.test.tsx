@@ -8,8 +8,8 @@ afterAll(() => {
 
 describe("Photos component", () => {
   it("should render", () => {
-    render(<Photos />);
-    const h2Element = screen.getByRole("heading", { name: "Album" });
+    render(<Photos albumId="1" />);
+    const h2Element = screen.getByRole("heading", { name: "Album 1 Photos" });
     expect(h2Element).toBeInTheDocument;
   });
 });
