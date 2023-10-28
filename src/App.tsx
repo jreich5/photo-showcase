@@ -42,11 +42,6 @@ function App() {
           <AlbumForm changeAlbumId={changeAlbumId} />
           <Photos albumId={albumId} photos={photos} />
         </main>
-        <Pagination
-          changePageNum={changePageNum}
-          pageNum={pageNum}
-          photos={photos}
-        />
       </div>
     </>
   );
