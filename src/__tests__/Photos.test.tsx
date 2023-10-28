@@ -1,6 +1,7 @@
 import { describe, it, expect, afterAll } from "bun:test";
 import { render, screen, cleanup } from "@testing-library/react";
 import Photos from "../components/Photos";
+import React from "react";
 
 afterAll(() => {
   cleanup();
