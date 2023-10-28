@@ -19,6 +19,14 @@ You can view a live version of the application [here](https://jreich5.github.io/
 
 ## Development Process (IN PROGRESS)
 
+## Significant Blockers
+
+In the course of building this showcase, I encountered several blockers.
+
+- Getting the RTL tests to work on child components
+
+It took me a bit of tinkering to understand that in order for me to render child components and test them, I would need to teardown the DOM after testing each component. I found that the `afterAll` method in the Bun test runner allowed me to call the `cleanup` method from the React Testing Library.
+
 ### Inital Setup and Planning
 
 I started started this project by first building out a <10min prototype in a single HTML file with JavaScript. This early prototype in the root of the project is the file called `ten-minute-prototype.html`. I did this to get a quick sense of the basic functionality of the project.
