@@ -3,6 +3,7 @@ import { PhotoAPI } from "./PhotoAPI";
 import AlbumForm from "./components/AlbumForm";
 import Photos from "./components/Photos";
 import Pagination from "./components/Pagination";
+import React from "react";
 
 function App() {
   const [albumId, setAlbumId] = useState("1");
@@ -39,7 +40,7 @@ function App() {
           <h1>Photo Showcase</h1>
         </header>
         <main>
-          <AlbumForm changeAlbumId={changeAlbumId} />
+          <AlbumForm photos={photos} changeAlbumId={changeAlbumId} />
           <Photos albumId={albumId} photos={photos} />
         </main>
       </div>
