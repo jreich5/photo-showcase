@@ -2,16 +2,34 @@ import { useState, useEffect } from "react";
 import { PhotoAPI } from "./PhotoAPI";
 import AlbumForm from "./components/AlbumForm";
 import Photos from "./components/Photos";
-import Pagination from "./components/Pagination";
 import React from "react";
+
+export interface IPhoto {
+  id: number;
+  albumId: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
+}
+
+/**
+ * Check local storage and if photos are already saved, load them into memory
+ * @returns the initial state for photos
+ */
+const pullFromLocalStorage = () => {
+  const savedPhotos = localStorage.getItem("photos");
+  let initialValue;
+  if (savedPhotos === null) {
+    initialValue = [];
+  } else {
+    initialValue = JSON.parse(savedPhotos);
+  }
+  return initialValue || [];
+};
 
 function App() {
   const [albumId, setAlbumId] = useState("1");
-  const [photos, setPhotos] = useState(() => {
-    const savedPhotos = localStorage.getItem("photos");
-    const initialValue = JSON.parse(savedPhotos);
-    return initialValue || [];
-  });
+  const [photos, setPhotos] = useState(pullFromLocalStorage);
 
   useEffect(() => {
     (async () => {
@@ -25,6 +43,7 @@ function App() {
   });
 
   const changeAlbumId = (id: string) => {
+    // prevents clearing out the photos from the DOM if the user erases the album id input
     if (id === "") {
       id = "1";
     }

@@ -1,8 +1,14 @@
 import React from "react";
-import { useState, useMemo } from "react";
+import { useState, useMemo, FC } from "react";
+import { IPhoto } from "../App";
+
+interface AlbumFormProps {
+  changeAlbumId: (id: string) => void;
+  photos: IPhoto[];
+}
 
 /**
- *
+ * Takes in the array of photos and returns the number albums in the array
  * @param photos
  * @returns the total number of unique album ids for a given array of photos
  */
@@ -10,7 +16,7 @@ export const calculateNumberOfAlbums = (photos) => {
   return Array.from(new Set(photos.map(({ albumId }) => albumId))).length;
 };
 
-function AlbumForm({ changeAlbumId, photos }) {
+const AlbumForm: FC<AlbumFormProps> = ({ changeAlbumId, photos }) => {
   const [albumId, setAlbumId] = useState("");
   const numberOfAlbums = useMemo(
     () => calculateNumberOfAlbums(photos),
@@ -18,7 +24,13 @@ function AlbumForm({ changeAlbumId, photos }) {
   );
   const processInputChange = (e: { target: any }) => {
     let id = e.target.value;
-    if (!isNaN(Number(id)) && id <= numberOfAlbums && id !== 0 && id !== ".") {
+    // REFACTOR!!!!!!!!!!!!!!!!!!
+    if (
+      !isNaN(Number(id)) &&
+      id <= numberOfAlbums &&
+      id !== 0 &&
+      !id.includes(".")
+    ) {
       let idNumber = String(Math.floor(Number(id)));
       if (idNumber === "0") {
         id = "";
@@ -61,6 +73,6 @@ function AlbumForm({ changeAlbumId, photos }) {
       </section>
     </>
   );
-}
+};
 
 export default AlbumForm;
