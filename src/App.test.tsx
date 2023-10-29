@@ -1,23 +1,7 @@
 import { describe, it, expect, afterAll, beforeAll, mock } from "bun:test";
 import { render, screen, cleanup, fireEvent } from "@testing-library/react";
 import App from "./App";
-
-// const testPhotos = [
-//   {
-//     albumId: 1,
-//     id: 1,
-//     title: "accusamus beatae ad facilis cum similique qui sunt",
-//     url: "https://via.placeholder.com/600/92c952",
-//     thumbnailUrl: "https://via.placeholder.com/150/92c952",
-//   },
-//   {
-//     albumId: 1,
-//     id: 2,
-//     title: "reprehenderit est deserunt velit ipsam",
-//     url: "https://via.placeholder.com/600/771796",
-//     thumbnailUrl: "https://via.placeholder.com/150/771796",
-//   },
-// ];
+import React from "react";
 
 beforeAll(() => {
   render(<App />);
@@ -38,23 +22,4 @@ describe("App component", () => {
     const photosHeading = screen.getAllByRole("heading", { level: 2 })[0];
     expect(photosHeading.innerText).toContain("1");
   });
-  // it("should render photos after successfull API call", async () => {
-  //   const photos = [
-  //     {
-  //       albumId: 1,
-  //       id: 1,
-  //       title: "accusamus beatae ad facilis cum similique qui sunt",
-  //       url: "https://via.placeholder.com/600/92c952",
-  //       thumbnailUrl: "https://via.placeholder.com/150/92c952",
-  //     },
-  //     {
-  //       albumId: 1,
-  //       id: 2,
-  //       title: "reprehenderit est deserunt velit ipsam",
-  //       url: "https://via.placeholder.com/600/771796",
-  //       thumbnailUrl: "https://via.placeholder.com/150/771796",
-  //     },
-  //   ];
-
-  // });
 });

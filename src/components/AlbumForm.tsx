@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useMemo, FC } from "react";
 import { IPhoto } from "../App";
+import { inputIsValid } from "../validation";
 
 interface AlbumFormProps {
   changeAlbumId: (id: string) => void;
@@ -22,19 +23,18 @@ const AlbumForm: FC<AlbumFormProps> = ({ changeAlbumId, photos }) => {
     () => calculateNumberOfAlbums(photos),
     [photos]
   );
-  const processInputChange = (e: { target: any }) => {
-    let id = e.target.value;
-    // REFACTOR!!!!!!!!!!!!!!!!!!
-    if (
-      !isNaN(Number(id)) &&
-      id <= numberOfAlbums &&
-      id !== 0 &&
-      !id.includes(".")
-    ) {
-      let idNumber = String(Math.floor(Number(id)));
-      if (idNumber === "0") {
-        id = "";
-      }
+  const processInputChange = (e: React.FormEvent<HTMLInputElement>) => {
+    let id = e.currentTarget.value;
+    if (id === "0") return;
+    if (id === "") {
+      // allows the search to be pre-populated with the first album if blank
+      changeAlbumId("1");
+      setAlbumId("");
+    }
+    const isValidInput = inputIsValid(id, 1, numberOfAlbums);
+    if (isValidInput) {
+      // let idNumber = id;
+      // idNumber = String(Math.floor(Number(id)));
       changeAlbumId(id);
       setAlbumId(id);
     }
