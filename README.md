@@ -45,7 +45,7 @@ To run the application locally, complete the following steps:
 
 ### Inital Setup and Planning
 
-I started started this project by first building out a <10min [prototype](https://github.com/jreich5/photo-showcase/blob/main/ten-minute-prototype.html) in a single HTML file with JavaScript. This early prototype in the root of the project is the file called `ten-minute-prototype.html`. I did this to get a quick sense of the basic functionality of the project.
+I started started this project by first building out a <10min [prototype](https://github.com/jreich5/photo-showcase/blob/main/ten-minute-prototype.html) in a single HTML file with JavaScript. I did this to get a quick sense of the basic functionality of the project.
 
 After completing the prototype, I decided to build out a front-end app using React+TypeScript with Vite and Bun. My goal with this build was to strike a balance between over-engineering and adhering to as many best practices as possible.
 
@@ -61,11 +61,11 @@ I then created mockups with Figma for the desktop and mobile views.
 
 Desktop mockup:
 
-![Desktop Mockup](desktop-view.png)
+![Desktop Mockup](./images/desktop-view.png)
 
 Mobile mockup:
 
-![Mobile Mockup](mobile-view.png)
+![Mobile Mockup](./images/mobile-view.png)
 
 I then planned out what my component hierarchy would be using annotations in Mac Finder (the version below still contained pagination and a few mislabled props):
 
