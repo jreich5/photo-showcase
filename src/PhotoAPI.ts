@@ -2,13 +2,27 @@ const url = "https://jsonplaceholder.typicode.com/photos";
 
 export const PhotoAPI = {
   get: async (albumId: string) => {
-    const response = await fetch(`${url}?albumId=${albumId}`);
-    const photos = await response.json();
-    return photos;
+    try {
+      const response = await fetch(`${url}?albumId=${albumId}`);
+      if (!response.ok) {
+        throw Error("Network error!");
+      }
+      const photos = await response.json();
+      return photos;
+    } catch (e) {
+      throw Error("Network error!");
+    }
   },
   getAll: async () => {
-    const response = await fetch(url);
-    const photos = await response.json();
-    return photos;
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw Error("Network error!");
+      }
+      const photos = await response.json();
+      return photos;
+    } catch (e) {
+      throw Error("Network error!");
+    }
   },
 };

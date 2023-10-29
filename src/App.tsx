@@ -29,14 +29,21 @@ const pullFromLocalStorage = () => {
 function App() {
   const [albumId, setAlbumId] = useState("1");
   const [photos, setPhotos] = useState(pullFromLocalStorage);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     (async () => {
-      const fetchedPhotos = await PhotoAPI.getAll();
-      // if the data in the API has changed, update the state and local storage
-      if (JSON.stringify(photos) !== JSON.stringify(fetchedPhotos)) {
-        setPhotos(photos);
-        localStorage.setItem("photos", JSON.stringify(photos));
+      setError("");
+      try {
+        const fetchedPhotos = await PhotoAPI.getAll();
+        // if the data in the API has changed, update the state and local storage
+        if (JSON.stringify(photos) !== JSON.stringify(fetchedPhotos)) {
+          setPhotos(photos);
+          localStorage.setItem("photos", JSON.stringify(photos));
+        }
+      } catch (e) {
+        console.error("Network error!");
+        setError("Network error!");
       }
     })();
   });
@@ -66,7 +73,11 @@ function App() {
         </header>
         <main>
           <AlbumForm photos={photos} changeAlbumId={changeAlbumId} />
-          <Photos albumId={albumId} photos={photos} />
+          {error ? (
+            <h3 className="text-3xl text-red-700">Network error!</h3>
+          ) : (
+            <Photos albumId={albumId} photos={photos} />
+          )}
         </main>
       </div>
     </>
