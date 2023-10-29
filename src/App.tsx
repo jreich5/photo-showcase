@@ -33,13 +33,12 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      setError("");
       try {
         const fetchedPhotos = await PhotoAPI.getAll();
         // if the data in the API has changed, update the state and local storage
         if (JSON.stringify(photos) !== JSON.stringify(fetchedPhotos)) {
-          setPhotos(photos);
-          localStorage.setItem("photos", JSON.stringify(photos));
+          setPhotos(fetchedPhotos);
+          localStorage.setItem("photos", JSON.stringify(fetchedPhotos));
         }
       } catch (e) {
         console.error("Network error!");
