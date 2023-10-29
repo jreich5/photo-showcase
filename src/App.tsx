@@ -7,7 +7,6 @@ import React from "react";
 
 function App() {
   const [albumId, setAlbumId] = useState("1");
-  const [pageNum, setPageNum] = useState(1);
   const [photos, setPhotos] = useState(() => {
     const savedPhotos = localStorage.getItem("photos");
     const initialValue = JSON.parse(savedPhotos);
@@ -26,18 +25,26 @@ function App() {
   });
 
   const changeAlbumId = (id: string) => {
+    if (id === "") {
+      id = "1";
+    }
     setAlbumId(id);
-  };
-
-  const changePageNum = (pageNum: number) => {
-    setPageNum(pageNum);
   };
 
   return (
     <>
-      <div id="wrapper">
-        <header>
-          <h1>Photo Showcase</h1>
+      <div id="wrapper" className={["p-4"].join(" ")}>
+        <header className={["w-100"].join(" ")}>
+          <h1
+            className={[
+              "text-center",
+              "font-extrabold",
+              "text-5xl",
+              "py-12",
+            ].join(" ")}
+          >
+            Photo Showcase
+          </h1>
         </header>
         <main>
           <AlbumForm photos={photos} changeAlbumId={changeAlbumId} />
