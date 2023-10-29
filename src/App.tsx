@@ -33,7 +33,6 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      setError("");
       try {
         const fetchedPhotos = await PhotoAPI.getAll();
         // if the data in the API has changed, update the state and local storage
