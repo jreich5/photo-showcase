@@ -1,6 +1,12 @@
-import React from "react";
+import { FC } from "react";
 
-function Photo({ id, title, url }) {
+interface PhotoProps {
+  id: number;
+  title: string;
+  url: string;
+}
+
+const Photo: FC<PhotoProps> = ({ id, title, url }) => {
   return (
     <article
       className={[
@@ -22,6 +28,6 @@ function Photo({ id, title, url }) {
       </p>
     </article>
   );
-}
+};
 
 export default Photo;

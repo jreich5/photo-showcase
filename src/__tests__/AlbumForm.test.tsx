@@ -1,7 +1,6 @@
 import { describe, it, expect, afterAll, beforeEach } from "bun:test";
 import { render, screen, cleanup } from "@testing-library/react";
 import AlbumForm, { calculateNumberOfAlbums } from "../components/AlbumForm";
-import React from "react";
 
 afterAll(() => {
   cleanup();
@@ -49,27 +48,34 @@ const photos2 = [
 ];
 
 describe("AlbumForm component", () => {
+  const callback = () => {};
   beforeEach(() => {
     cleanup();
   });
   it("should render", () => {
-    render(<AlbumForm photos={photos1} changeAlbumId={undefined} />);
+    render(<AlbumForm photos={photos1} changeAlbumId={callback} />);
     const inputElement = screen.getByPlaceholderText("Enter album id");
-    expect(inputElement).toBeInTheDocument;
+    expect(inputElement).toBeDefined;
   });
   it("should have a label", () => {
-    render(<AlbumForm photos={photos1} changeAlbumId={undefined} />);
+    render(<AlbumForm photos={photos1} changeAlbumId={callback} />);
     const labelElement = screen.getByText("Search by album id");
-    expect(labelElement).toBeInTheDocument;
+    expect(labelElement).toBeDefined;
   });
   it("should have a label with the correct number of albums to pick from for 2 albums", () => {
-    render(<AlbumForm photos={photos1} changeAlbumId={undefined} />);
-    const labelElement = screen.getByText("Search by album id");
+    render(<AlbumForm photos={photos1} changeAlbumId={callback} />);
+    const numberOfAlbums = 2;
+    const labelElement = screen.getByText(
+      new RegExp(`numbers 1-${numberOfAlbums}`) // <-------- From ChatGPT
+    );
     expect(labelElement.innerText).toContain("2");
   });
   it("should have a label with the correct number of albums to pick from for 1 album", () => {
-    render(<AlbumForm photos={photos2} changeAlbumId={undefined} />);
-    const labelElement = screen.getByText("Search by album id");
+    render(<AlbumForm photos={photos2} changeAlbumId={callback} />);
+    const numberOfAlbums = 3;
+    const labelElement = screen.getByText(
+      new RegExp(`numbers 1-${numberOfAlbums}`) // <-------- From ChatGPT
+    );
     expect(labelElement.innerText).toContain("3");
   });
 });
