@@ -1,6 +1,5 @@
-import { describe, it, expect, afterAll, beforeAll, mock } from "bun:test";
+import { describe, it, expect, afterAll, beforeAll } from "bun:test";
 import { render, screen, cleanup, fireEvent } from "@testing-library/react";
-import React from "react";
 import App from "../App";
 
 beforeAll(() => {
@@ -14,7 +13,7 @@ afterAll(() => {
 describe("App component", () => {
   it("should render", () => {
     const h1Element = screen.getByRole("heading", { name: "Photo Showcase" });
-    expect(h1Element).toBeInTheDocument;
+    expect(h1Element).toBeDefined;
   });
   it("should allow the album id to change", () => {
     const albumIdInput = screen.getByPlaceholderText("Enter album id");

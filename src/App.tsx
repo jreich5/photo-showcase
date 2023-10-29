@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { PhotoAPI } from "./PhotoAPI";
 import AlbumForm from "./components/AlbumForm";
 import Photos from "./components/Photos";
-import React from "react";
 
 export interface IPhoto {
   id: number;

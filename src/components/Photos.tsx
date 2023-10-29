@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import Photo from "./Photo";
 import { IPhoto } from "../App";
 
