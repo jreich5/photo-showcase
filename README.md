@@ -61,11 +61,11 @@ I then created mockups with Figma for the desktop and mobile views.
 
 Desktop mockup:
 
-![Desktop Mockup](./images/desktop-view.png)
+![Desktop Mockup](./images/desktop-mockup.png)
 
 Mobile mockup:
 
-![Mobile Mockup](./images/mobile-view.png)
+![Mobile Mockup](./images/mobile-mockup.png)
 
 I then planned out what my component hierarchy would be using annotations in Mac Finder (the version below still contained pagination and a few mislabled props):
 
