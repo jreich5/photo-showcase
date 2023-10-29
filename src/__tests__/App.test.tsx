@@ -1,7 +1,7 @@
 import { describe, it, expect, afterAll, beforeAll, mock } from "bun:test";
 import { render, screen, cleanup, fireEvent } from "@testing-library/react";
-import App from "./App";
 import React from "react";
+import App from "../App";
 
 beforeAll(() => {
   render(<App />);

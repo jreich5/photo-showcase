@@ -63,14 +63,20 @@ describe("AlbumForm component", () => {
     const labelElement = screen.getByText("Search by album id");
     expect(labelElement).toBeInTheDocument;
   });
-  it.skip("should have a label with the correct number of albums to pick from for 2 albums", () => {
+  it("should have a label with the correct number of albums to pick from for 2 albums", () => {
     render(<AlbumForm photos={photos1} changeAlbumId={callback} />);
-    const labelElement = screen.getByText("(numbers 1-2"); // <-------- BROKEN!!!
+    const numberOfAlbums = 2;
+    const labelElement = screen.getByText(
+      new RegExp(`numbers 1-${numberOfAlbums}`) // <-------- From ChatGPT
+    );
     expect(labelElement.innerText).toContain("2");
   });
-  it.skip("should have a label with the correct number of albums to pick from for 1 album", () => {
+  it("should have a label with the correct number of albums to pick from for 1 album", () => {
     render(<AlbumForm photos={photos2} changeAlbumId={callback} />);
-    const labelElement = screen.getByText("numbers"); // <-------- BROKEN!!!
+    const numberOfAlbums = 3;
+    const labelElement = screen.getByText(
+      new RegExp(`numbers 1-${numberOfAlbums}`) // <-------- From ChatGPT
+    );
     expect(labelElement.innerText).toContain("3");
   });
 });

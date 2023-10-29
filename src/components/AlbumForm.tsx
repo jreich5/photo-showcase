@@ -25,53 +25,48 @@ const AlbumForm: FC<AlbumFormProps> = ({ changeAlbumId, photos }) => {
   );
   const processInputChange = (e: React.FormEvent<HTMLInputElement>) => {
     let id = e.currentTarget.value;
-    if (id === "0") return;
     if (id === "") {
-      // allows the search to be pre-populated with the first album if blank
+      // allows the photos to be pre-populated with the first album if input is blank
       changeAlbumId("1");
       setAlbumId("");
     }
     const isValidInput = inputIsValid(id, 1, numberOfAlbums);
     if (isValidInput) {
-      // let idNumber = id;
-      // idNumber = String(Math.floor(Number(id)));
       changeAlbumId(id);
       setAlbumId(id);
     }
   };
   return (
-    <>
-      <section className={["flex", "mb-12"].join(" ")}>
-        <form
-          className={["m-auto", "flex", "flex-col", "items-center"].join(" ")}
-        >
-          <div>
-            <label
-              className="flex flex-col items-center font-bold"
-              htmlFor="album-id"
-            >
-              <span className="">Search by album id</span>
-              <span>(numbers 1-{numberOfAlbums})</span>
-            </label>
-          </div>
-          <input
-            className={[
-              "p-2",
-              "w-[8rem]",
-              "border",
-              "border-2",
-              "rounded",
-              "text-center",
-            ].join(" ")}
-            id="album-id"
-            type="text"
-            placeholder="Enter album id"
-            value={albumId}
-            onChange={processInputChange}
-          />
-        </form>
-      </section>
-    </>
+    <section className={["flex", "mb-12"].join(" ")}>
+      <form
+        className={["m-auto", "flex", "flex-col", "items-center"].join(" ")}
+      >
+        <div>
+          <label
+            className="flex flex-col items-center font-bold"
+            htmlFor="album-id"
+          >
+            <span className="">Search by album id</span>
+            <span>(numbers 1-{numberOfAlbums})</span>
+          </label>
+        </div>
+        <input
+          className={[
+            "p-2",
+            "w-[8rem]",
+            "border",
+            "border-2",
+            "rounded",
+            "text-center",
+          ].join(" ")}
+          id="album-id"
+          type="text"
+          placeholder="Enter album id"
+          value={albumId}
+          onChange={processInputChange}
+        />
+      </form>
+    </section>
   );
 };
 

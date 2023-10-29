@@ -35,7 +35,7 @@ function App() {
     (async () => {
       const fetchedPhotos = await PhotoAPI.getAll();
       // if the data in the API has changed, update the state and local storage
-      if (photos !== fetchedPhotos) {
+      if (JSON.stringify(photos) !== JSON.stringify(fetchedPhotos)) {
         setPhotos(photos);
         localStorage.setItem("photos", JSON.stringify(photos));
       }
