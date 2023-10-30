@@ -1,3 +1,11 @@
+# DEPRECATED
+
+This project has been deprecated due to Bun still being experiemental for Windows platforms. It will no longer be maintained.
+
+An updated version of this project using Node, NPM and Jest instead of Bun can be found here:
+
+[photo-showcase-node](https://github.com/jreich/photo-showcase-node)
+
 # Photo Showcase
 
 This project is a React application to display and search for photos by a photo album id.
